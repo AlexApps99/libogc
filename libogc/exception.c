@@ -67,6 +67,7 @@ extern void udelay(int us);
 extern void fpu_exceptionhandler(frame_context*);
 extern void irq_exceptionhandler(frame_context*);
 extern void dec_exceptionhandler(frame_context*);
+extern void prg_exceptionhandler(frame_context*);
 extern void default_exceptionhandler(frame_context*);
 extern void VIDEO_SetFramebuffer(void *);
 extern void __reload(void);
@@ -121,6 +122,7 @@ void __exception_init(void)
 	__exception_sethandler(EX_FP,fpu_exceptionhandler);
 	__exception_sethandler(EX_INT,irq_exceptionhandler);
 	__exception_sethandler(EX_DEC,dec_exceptionhandler);
+	__exception_sethandler(EX_PRG,prg_exceptionhandler);
 
 	mtmsr(mfmsr()|MSR_RI);
 }

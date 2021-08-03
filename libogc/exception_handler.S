@@ -223,6 +223,11 @@ fpu_exceptionhandler:
 	addi		sp,sp,EXCEPTION_FRAME_END
 	rfi
 
+	.globl prg_exceptionhandler
+prg_exceptionhandler:
+	li			r27,0xBED00B0D
+	rfi
+
 	.global systemcallhandler_start,systemcallhandler_end
 systemcallhandler_start:
 	mtspr	SPRG2,r9
